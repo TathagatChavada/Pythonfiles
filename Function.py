@@ -18,6 +18,20 @@ print(add_numbers(68, 64))
 
 print("\n")
 
+def Name(x):
+    return f'My name is {x}'
+
+def add(a,b):
+    return a + b
+
+if __name__ == '__main__':
+    print(Name('Tathagat'))
+
+    o = add(5,4)
+    print(o)
+
+
+
 
 # 3  To find the average of marks and its grade.
 def find_average_marks(marks):
