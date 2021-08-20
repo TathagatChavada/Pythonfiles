@@ -1,3 +1,4 @@
+import os
 # Working with Binary file
 import pickle as p
 
@@ -79,13 +80,65 @@ def Search_file():
         pass
 
 
+# def Delete_record(rollno):
+#     f = open('bfile.dat', 'rb')
+#     flag = 0
+#     reclst = []
+#     try:
+#         while True:
+#             rec = p.load(f) 
+#             reclst.append(rec)
+
+#     except EOFError:
+#         pass
+#     f.close()
+#     print(reclst)
+
+#     file = open('bfile.dat', 'wb')
+#     for i in reclst:
+#         if i[0] == rollno:
+#             flag = 1
+#             print('Deleted the record of: ',rollno)
+#             continue
+#         p.dump(i,file)
+#     f.close()
+
+#     if flag == 0:
+#         print('Record not found')
+
+def delete_record():
+     rno = int(input("Enter a roll no you want to delete:"))
+     rfile = open("bfile.dat","rb")
+     wfile = open("temp.dat","wb")
+     flag =0
+     try:
+         while True:
+             rec = p.load(rfile)
+             if rec[0]== rno:
+                 flag =1
+                 print("record found & deleted.")
+                 continue
+             else:
+                 p.dump(rec,wfile)
+     except EOFError:
+        pass
+     rfile.close()
+     wfile.close()
+    
+     os.remove("bfile.dat")
+     os.rename("temp.dat","bfile.dat")
+    
+     if flag ==0:
+        print("Record not found....")
+
 # Controlling the execution of the program
 ans = 'y'
 while ans =='y' or ans =='Y':
     print('\t1. Create a binary File.\n'
           '\t2. Append in the existing binary file.\n'
           '\t3. Read the binary file.\n'
-          '\t4. Search in the binary file.')
+          '\t4. Search in the binary file.\n'
+          '\t5. Delete a record from the binary file.\n')
    
 
     choice = int(input('Enter your choice: '))
@@ -102,6 +155,8 @@ while ans =='y' or ans =='Y':
     elif choice == 4:
         Search_file()
 
+    elif choice == 5:
+        delete_record()
     else:
         print('Invalid choice....')      
 
