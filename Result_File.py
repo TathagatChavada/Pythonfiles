@@ -1,5 +1,5 @@
 # Create a .txt file
-f = open('Result.txt','a')
+f = open('Result.txt','w')
 
 # Enter details for your result
 name = input("Enter your name: ")
@@ -26,19 +26,19 @@ else:
     x = 'Fail'
     
 # Layout of your result
-f.write('_______________________________________________'+ '\n')
-f.write('Name: ' + str(name) + '\t\t\t\t')
-f.write('Roll No: ' + str(roll_no)+ '\n')
-f.write('_______________________________________________'+ '\n')
-f.write('Physics: ' + str(Physics)+ '\n\n')
-f.write('Chemistry: ' + str(Chemistry)+ '\n\n')
-f.write('Maths: ' + str(Maths)+ '\n\n')
-f.write('Cs: ' + str(Cs)+ '\n\n')
-f.write('English: ' + str(English)+ '\n\n')
-f.write('_______________________________________________'+ '\n')
-f.write('Total: ' + str(Total) + '\t\t\t\t')
-f.write('Percentage: ' + str(Percentage) + ' %' + '\n')
-f.write('_______________________________________________'+ '\n\n\n')
+f.writelines('_______________________________________________'+ '\n'
+'Name: ' + str(name) + '\t\t\t\t'
+'Roll No: ' + str(roll_no)+ '\n'
+'_______________________________________________'+ '\n'
+'Physics: ' + str(Physics)+ '\n\n'
+'Chemistry: ' + str(Chemistry)+ '\n\n'
+'Maths: ' + str(Maths)+ '\n\n'
+'Cs: ' + str(Cs)+ '\n\n'
+'English: ' + str(English)+ '\n\n'
+'_______________________________________________'+ '\n'
+'Total: ' + str(Total) + '\t\t\t\t'
+'Percentage: ' + str(Percentage) + ' % ' + str(x) + '\n'
+'_______________________________________________'+ '\n\n\n')
 
 # Closing the file
 f.close()
